@@ -7,7 +7,7 @@ import ComoFiz from './pages/ComoFiz.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/aura-closet-api">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/como-fiz" element={<ComoFiz />} />
