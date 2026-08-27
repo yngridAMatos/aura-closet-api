@@ -1,4 +1,8 @@
-function Header() {
+interface HeaderProps {
+  cartCount: number;
+  onOpenCart: () => void;
+}
+function Header({ cartCount, onOpenCart }: HeaderProps) {
 
   return (
     <div>
@@ -6,6 +10,18 @@ function Header() {
           <h1 className="text-2xl font-serif tracking-widest uppercase text-black">
             Aura <span className="text-[#b76e79]">Closet</span>
           </h1>
+
+          <button 
+          onClick={onOpenCart}
+          className="relative text-xs uppercase tracking-widest border border-gray-200 px-4 py-2 hover:border-black transition-colors cursor-pointer flex items-center gap-2"
+        >
+          Carrinho
+          {cartCount > 0 && (
+            <span className="bg-[#b76e79] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+              {cartCount}
+            </span>
+          )}
+        </button>
         </header>
         
         <section className="bg-black text-white py-16 px-6 text-center">

@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import {type Product} from '../types.ts';
 
 interface ProductCardProps {
   product: Product;
+  onAddToCart: (product: Product, selectedSize: string) => void;
 }
 
-function ProductCard( { product }: ProductCardProps) {
+function ProductCard( { product, onAddToCart }: ProductCardProps) {
+  const [selectedSize, setSelectedSize] = useState(product.tamanhos[0] || "M");
    return (
     <div className="group flex flex-col">
-      <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden mb-4">
+      <div className="relative aspect-3/4 bg-gray-50 overflow-hidden mb-4">
         <img
           src={product.imagem}
           alt={product.nome}
@@ -19,10 +22,32 @@ function ProductCard( { product }: ProductCardProps) {
       </div>
       <h3 className="text-sm font-medium tracking-wide mb-1">{product.nome}</h3>
       <p className="text-xs text-gray-500 mb-2 line-clamp-1">{product.descricao}</p>
+
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[10px] uppercase text-gray-400 tracking-wider">Tam:</span>
+        <div className="flex gap-1">
+          {product.tamanhos.map((tam) => (
+            <button
+              key={tam}
+              onClick={() => setSelectedSize(tam)}
+              className={`w-7 h-7 text-xs border transition-all cursor-pointer ${
+                selectedSize === tam
+                  ? 'border-black bg-black text-white'
+                  : 'border-gray-200 text-gray-700 hover:border-black'
+              }`}
+            >
+              {tam}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <span className="text-sm font-semibold text-black tracking-wide">
         R$ {product.preco.toFixed(2)}
       </span>
-      <button className="bg-black text-white text-xs uppercase tracking-widest px-4 py-2 hover:bg-[#b76e79] transition-colors">
+      <button 
+        onClick={() => onAddToCart(product, selectedSize)}
+        className="bg-black text-white text-xs uppercase tracking-widest px-4 py-2 hover:bg-[#b76e79] transition-colors">
         Eu Quero
       </button>
     </div>
