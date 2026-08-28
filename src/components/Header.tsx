@@ -1,7 +1,10 @@
+import { Link } from 'react-router-dom';
+
 interface HeaderProps {
   cartCount: number;
   onOpenCart: () => void;
 }
+
 function Header({ cartCount, onOpenCart }: HeaderProps) {
 
   return (
@@ -10,6 +13,12 @@ function Header({ cartCount, onOpenCart }: HeaderProps) {
           <h1 className="text-2xl font-serif tracking-widest uppercase text-black">
             Aura <span className="text-[#b76e79]">Closet</span>
           </h1>
+
+          <Link 
+            to="/como-fiz" 
+            className="text-xs uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
+            Como Fiz / Vídeo
+          </Link>
 
           <button 
           onClick={onOpenCart}
