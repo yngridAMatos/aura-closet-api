@@ -22,6 +22,7 @@ function Header({ cartCount, onOpenCart }: HeaderProps) {
 
           <button 
           onClick={onOpenCart}
+          aria-label="Abrir carrinho."
           className="relative text-xs uppercase tracking-widest border border-gray-200 px-4 py-2 hover:border-black transition-colors cursor-pointer flex items-center gap-2"
         >
           Carrinho

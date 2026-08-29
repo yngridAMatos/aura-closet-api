@@ -9,17 +9,29 @@ import CartDrawer from "./components/CartDrawer.tsx";
 
 export default function App() {
  const [products, setProducts] = useState<Product[]>([]);
+const [categorias, setCategorias] = useState<string[]>(['todos']);
+
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen]= useState(false);
-  
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/products.json')
       .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error('Erro ao carregar o catálogo:', err));
+      .then((data: Product[]) => {
+        setProducts(data);
+        const categoriasUnicas: string[] = Array.from(new Set(data.map((p: Product) => p.categoria)));
+        setCategorias(['todos', ...categoriasUnicas]);
+      })
+      .catch((err) => { 
+        console.error('Erro ao carregar o catálogo.', err);
+        setError('Não foi possível carregar o catálogo.');
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const filteredProducts = products.filter((product) => {
@@ -72,16 +84,26 @@ export default function App() {
 
       <main className="max-w-7xl mx-auto px-6 py-12">
           <FilterBar
+            categorias={categorias}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
             search={search}
             onSearchChange={setSearch}
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
-          ))}
-        </div>
+          {isLoading && <p>Carregando produtos...</p>}
+          {error && <p>{error}</p>}
+
+          {!isLoading && !error && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
+              ))
+              ): (
+                <p>Nenhum produto encontrado.</p>
+              )}
+              </div>
+          )}
       </main>
 
       <CartDrawer

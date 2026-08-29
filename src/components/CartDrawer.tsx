@@ -34,8 +34,8 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }: C
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col">
           <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-            <h2 className="text-sm font-medium tracking-widest uppercase">Sua Sacola</h2>
-            <button onClick={onClose} className="text-gray-400 hover:text-black text-lg cursor-pointer">✕</button>
+            <h2 className="text-sm font-medium tracking-widest uppercase">Seu carrinho</h2>
+            <button onClick={onClose} aria-label="Fechar carrinho" className="text-gray-400 hover:text-black text-lg cursor-pointer">✕</button>
           </div>
 
           <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
@@ -53,11 +53,13 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }: C
                     <div className="flex items-center gap-2">
                       <button 
                         onClick={() => onUpdateQuantity(item.id, item.tamanhoSelecionado, -1)}
+                        aria-label={`Diminuir quantidade de ${item.nome}`}
                         className="w-6 h-6 border border-gray-200 flex items-center justify-center text-xs hover:border-black cursor-pointer"
                       >-</button>
                       <span className="text-xs font-medium">{item.quantidade}</span>
                       <button 
                         onClick={() => onUpdateQuantity(item.id, item.tamanhoSelecionado, 1)}
+                        aria-label={`Aumentar quantidade de ${item.nome}`}
                         className="w-6 h-6 border border-gray-200 flex items-center justify-center text-xs hover:border-black cursor-pointer"
                       >+</button>
                     </div>
@@ -65,6 +67,7 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }: C
 
                   <button 
                     onClick={() => onRemoveItem(item.id, item.tamanhoSelecionado)}
+                    aria-label={`Remover ${item.nome} do carrinho`}
                     className="text-gray-300 hover:text-red-500 text-xs cursor-pointer"
                   >
                     Remover

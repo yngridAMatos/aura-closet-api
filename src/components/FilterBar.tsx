@@ -1,37 +1,33 @@
 interface FilterBarProps {
+  categorias: string [];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
   search: string;
   onSearchChange: (value: string) => void;
 }
 
-export function FilterBar({
+function FilterBar({
+  categorias,
   selectedCategory,
   onSelectCategory,
   search,
   onSearchChange,
 }: FilterBarProps) {
- 
-  const categories = [
-    { id: 'todos', label: 'Todos' },
-    { id: 'vestidos', label: 'Vestidos' },
-    { id: 'conjuntos', label: 'Conjuntos' },
-  ];
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
       <div className="flex gap-2">
-        {categories.map((cat) => (
+        {categorias.map((cat) => (
           <button
-            key={cat.id}
-            onClick={() => onSelectCategory(cat.id)}
+            key={cat}
+            onClick={() => onSelectCategory(cat)}
             className={`px-4 py-2 text-sm uppercase tracking-wider transition-all cursor-pointer ${
-              selectedCategory === cat.id
+              selectedCategory === cat
                 ? 'bg-black text-white'
                 : 'border border-gray-200 hover:border-black'
             }`}
           >
-            {cat.label}
+            {cat}
           </button>
         ))}
       </div>
