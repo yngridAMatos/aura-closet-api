@@ -24,7 +24,7 @@ function ProductCard( { product, onAddToCart }: ProductCardProps) {
       <p className="text-xs text-gray-500 mb-2 line-clamp-1">{product.descricao}</p>
 
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-[10px] uppercase text-gray-400 tracking-wider">Tam:</span>
+        <span className="text-[10px] uppercase text-gray-600 tracking-wider">Tam:</span>
         <div className="flex gap-1">
           {product.tamanhos.map((tam) => (
             <button

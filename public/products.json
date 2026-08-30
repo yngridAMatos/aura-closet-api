@@ -5,7 +5,7 @@
     "categoria": "conjuntos",
     "tamanhos": ["M","G"],
     "preco": 450.00,
-    "imagem": "/assets/img/cj_giz_bb.jpeg",
+    "imagem": "/assets/img/cj_giz_bb.webp",
     "descricao": "Colete e saia midi elegante em tecido com detalhes em giz."
   },
   {
@@ -14,7 +14,7 @@
     "categoria": "conjuntos",
       "tamanhos": ["PP", "P"],
     "preco": 370.00,
-    "imagem": "/assets/img/cj_jeans_bb.jpeg",
+    "imagem": "/assets/img/cj_jeans_bb.webp",
     "descricao": "Conjunto composto por colete e saia com acabamento despojado."
   },
   {
@@ -23,7 +23,7 @@
     "categoria": "conjuntos",
       "tamanhos": ["M", "G"],
     "preco": 440.00,
-    "imagem": "/assets/img/cj_renda_bb.jpeg",
+    "imagem": "/assets/img/cj_renda_bb.webp",
     "descricao": "Blusa e saia em renda, ideal para ocasiões casuais e elegantes."
   },
   {
@@ -32,7 +32,7 @@
     "categoria": "conjuntos",
     "tamanhos": ["G"],
     "preco": 390.00,
-    "imagem": "/assets/img/cj_verde_cactus.jpeg",
+    "imagem": "/assets/img/cj_verde_cactus.webp",
     "descricao": "Conjunto top e calça giz tecido de alta qualidade, unindo extremo conforto e estilo."
   },
   {
@@ -41,7 +41,7 @@
     "categoria": "vestidos",
     "tamanhos": ["P", "M", "G"],
     "preco": 260.00,
-    "imagem": "/assets/img/vst_brilho_ac.jpeg",
+    "imagem": "/assets/img/vst_brilho_ac.webp",
     "descricao": "Vestido curto ajustado ao corpo, perfeito para produções noturnas modernas."
   },
   {
@@ -50,7 +50,7 @@
     "categoria": "vestidos",
     "tamanhos": ["P"],
     "preco": 230.00,
-    "imagem": "/assets/img/vst_marrom_cactus.jpeg",
+    "imagem": "/assets/img/vst_marrom_cactus.webp",
     "descricao": "Vestido manga longa alfaiataria, com alto conforto e estilo."
   },
    {
@@ -59,7 +59,7 @@
     "categoria": "vestidos",
     "tamanhos": ["P", "M"],
     "preco": 550.00,
-    "imagem": "/assets/img/vst_marrom_lp.jpeg",
+    "imagem": "/assets/img/vst_marrom_lp.webp",
     "descricao": "Vestido elegante em cotton, ideal para eventos sofisticados e que mereçam conforto."
   },
    {
@@ -68,7 +68,7 @@
     "categoria": "vestidos",
     "tamanhos": ["M"],
     "preco": 330.00,
-    "imagem": "/assets/img/vst_vinho_bb.jpeg",
+    "imagem": "/assets/img/vst_vinho_bb.webp",
     "descricao": "Vestido em tecido acetinado, com caimento fluido e alças delicadas ."
   }
 ]

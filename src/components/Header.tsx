@@ -11,7 +11,7 @@ function Header({ cartCount, onOpenCart }: HeaderProps) {
     <div>
         <header className="border-b border-gray-100 py-6 px-8 flex flex-col md:flex-row justify-between items-center gap-4 sticky top-0 bg-white/90 backdrop-blur-md z-50">
           <h1 className="text-2xl font-serif tracking-widest uppercase text-black">
-            Aura <span className="text-[#b76e79]">Closet</span>
+            Aura <span className="text-[#8c4a56]">Closet</span>
           </h1>
 
           <Link 

@@ -40,7 +40,7 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }: C
 
           <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
             {cart.length === 0 ? (
-              <p className="text-center text-gray-400 py-12 text-sm">Sua sacola está vazia.</p>
+              <p className="text-center text-gray-500 py-12 text-sm">Seu carrinho está vazio.</p>
             ) : (
               cart.map((item) => (
                 <div key={`${item.id}-${item.tamanhoSelecionado}`} className="flex gap-4 items-center border-b border-gray-50 pb-4">
@@ -68,7 +68,7 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }: C
                   <button 
                     onClick={() => onRemoveItem(item.id, item.tamanhoSelecionado)}
                     aria-label={`Remover ${item.nome} do carrinho`}
-                    className="text-gray-300 hover:text-red-500 text-xs cursor-pointer"
+                    className="text-gray-600 hover:text-red-500 text-xs cursor-pointer"
                   >
                     Remover
                   </button>
