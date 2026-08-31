@@ -1,32 +1,31 @@
-# React + TypeScript + Vite
+# Aura Closet
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação web de e-commerce desenvolvida com foco em uma interface limpa e responsiva. O projeto simula uma vitrine de vestuário feminino com recursos de busca, filtros por categoria, gerenciamento de carrinho de compras e integração para fechamento de pedidos via WhatsApp.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Tailwind CSS
 
-## React Compiler
+## Arquitetura e Decisões Técnicas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Headless Commerce:** O catálogo de produtos é desacoplado do código principal, sendo consumido de forma assíncrona a partir de um arquivo de dados estruturado (`products.json`).
+- **Roteamento:** Navegação entre a vitrine principal e a página de documentação técnica (`/como-fiz`).
 
-## Expanding the Oxlint configuration
+## Como Executar o Projeto Localmente
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Certifique-se de ter o Node.js instalado. No terminal, execute os comandos:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+```bash
+# Clone o repositório
+git clone [https://github.com/yngridAMatos/aura-closet-api.git](https://github.com/yngridAMatos/aura-closet-api.git)
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+# Entre na pasta
+cd aura-closet-api
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
